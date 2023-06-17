@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Inicio</title>
+</head>
+<body>
+<h1>Inicio</h1>
+<p th:text="${mensaje}"></p>
+<p th:text="${saludo}"></p>
+
+<div th:if="${personas!=null and !personas.isEmpty()}">
+    <table border="1">
+        <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Email</th>
+            <th>Teléfono</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="persona: ${personas}" >
+            <td th:text="${persona.nombre}">Mostrar Nombre</td>
+            <td th:text="${persona.apellido}">Mostrar Apellido</td>
+            <td th:text="${persona.email}">Mostrar Correo</td>
+            <td th:text="${persona.telefono}">Mostrar Teléfono</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div th:if="${personas==null or personas.isEmpty()}">
+    La lista de personas está vacía
+</div>
+</body>
+</html>
